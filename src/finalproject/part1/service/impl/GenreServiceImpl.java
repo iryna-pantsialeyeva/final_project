@@ -6,7 +6,11 @@ import finalproject.part1.service.GenreService;
 
 public class GenreServiceImpl implements GenreService {
 
-    private GenreDAO genreDAOImpl = DAOFactory.getInstance().getSqlGenreDAO();
+    private GenreDAO genreDAOImpl;
+
+    public GenreServiceImpl() {
+        this.genreDAOImpl = DAOFactory.getInstance().getSqlGenreDAO();
+    }
 
     @Override
     public void addGenre(String genre) {

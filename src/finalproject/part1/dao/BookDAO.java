@@ -4,7 +4,7 @@ import finalproject.part1.bean.Book;
 
 public interface BookDAO {
 
-    void addBook(String name, String isbn, String author, String genre);
+    void addBook(Book book);
 
     void deleteBook(Long idBook);
 

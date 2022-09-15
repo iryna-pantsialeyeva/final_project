@@ -1,8 +1,6 @@
 package finalproject.part1.view;
 
-import finalproject.part1.service.AuthorService;
 import finalproject.part1.service.BookService;
-import finalproject.part1.service.GenreService;
 import finalproject.part1.service.ServiceFactory;
 
 import java.util.Scanner;
@@ -11,8 +9,6 @@ public class MainMenu {
 
     private static ServiceFactory serviceFactory = ServiceFactory.getInstance();
     private static BookService bookService = serviceFactory.getBookService();
-    private static AuthorService authorService = serviceFactory.getAuthorService();
-    private static GenreService genreService = serviceFactory.getGenreService();
 
     public static void main(String[] args) throws InterruptedException {
 
@@ -60,7 +56,9 @@ public class MainMenu {
                     break;
                 case 4:
                     System.out.println("Good bye.");
-                    System.exit(0);
+                    scInt.close();
+                    scStr.close();
+                    return;
                 default:
                     System.out.println("Chosen option can not be performed. Please insert number within 1-4. \n");
             }

@@ -6,7 +6,11 @@ import finalproject.part1.service.AuthorService;
 
 public class AuthorServiceImpl implements AuthorService {
 
-    private AuthorDAO authorDAOImpl = DAOFactory.getInstance().getSqlAuthorDAO();
+    private AuthorDAO authorDAOImpl;
+
+    public AuthorServiceImpl() {
+        this.authorDAOImpl = DAOFactory.getInstance().getSqlAuthorDAO();
+    }
 
     @Override
     public void addAuthor(String author) {

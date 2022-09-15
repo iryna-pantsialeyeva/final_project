@@ -5,20 +5,27 @@ import java.util.Objects;
 public class Book {
 
     private Long id;
-    private Author a;
+    private Author author;
     private String name;
-    private Genre g;
+    private Genre genre;
     private String ISBN;
 
     public Book() {
     }
 
-    public Book(Long id, Author a, String name, Genre g, String ISBN) {
+    public Book(Long id, Author author, String name, Genre genre, String ISBN) {
         this.id = id;
-        this.a = a;
+        this.author = author;
         this.name = name;
-        this.g = g;
+        this.genre = genre;
         this.ISBN = ISBN;
+    }
+
+    public Book(String name, String ISBN, Author author, Genre genre) {
+        this.name = name;
+        this.ISBN = ISBN;
+        this.author = author;
+        this.genre = genre;
     }
 
     public Long getId() {
@@ -30,11 +37,11 @@ public class Book {
     }
 
     public Author getAuthor() {
-        return a;
+        return author;
     }
 
     public void setAuthor(Author a) {
-        this.a = a;
+        this.author = a;
     }
 
     public String getName() {
@@ -46,11 +53,11 @@ public class Book {
     }
 
     public Genre getGenre() {
-        return g;
+        return genre;
     }
 
     public void setGenre(Genre g) {
-        this.g = g;
+        this.genre = g;
     }
 
     public String getISBN() {
@@ -66,17 +73,17 @@ public class Book {
         if (this == o) return true;
         if (!(o instanceof Book)) return false;
         Book book = (Book) o;
-        return Objects.equals(a, book.a) && Objects.equals(name, book.name) && Objects.equals(g, book.g);
+        return Objects.equals(author, book.author) && Objects.equals(name, book.name) && Objects.equals(genre, book.genre);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(a, name, g);
+        return Objects.hash(author, name, genre);
     }
 
     @Override
     public String toString() {
-        return " \n**********************\n Here is you book: \n id: " + id + "\n author: " + a + "\n book name: "
-                + name + "\n genre: " + g + "\n ISBN: " + ISBN;
+        return " \n**********************\n Here is you book: \n id: " + id + "\n author: " + author + "\n book name: "
+                + name + "\n genre: " + genre + "\n ISBN: " + ISBN;
     }
 }

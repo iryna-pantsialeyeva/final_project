@@ -7,17 +7,16 @@ import java.sql.SQLException;
 public final class DataSourceUtil {
 
     private static final DataSourceUtil instance = new DataSourceUtil();
-
-    private String driverPath;
-    private String url;
-    private String user;
-    private String password;
+    private final String driverPath;
+    private final String url;
+    private final String user;
+    private final String password;
 
     private DataSourceUtil() {
-        this.driverPath = StaticVariable.DRIVER_PATH;
-        this.url = StaticVariable.URL;
-        this.user = StaticVariable.USER;
-        this.password = StaticVariable.PASSWORD;
+        this.driverPath = "com.mysql.cj.jdbc.Driver";
+        this.url = "jdbc:mysql://127.0.0.1/finallibrary?useSSL=false";
+        this.user = "root";
+        this.password = "admin";
     }
 
     public static DataSourceUtil getInstance() {
@@ -27,9 +26,8 @@ public final class DataSourceUtil {
     public Connection getConnection() {
         Connection con = null;
         try {
-            Class.forName(driverPath);
             con = DriverManager.getConnection(url, user, password);
-        } catch (ClassNotFoundException | SQLException e) {
+        } catch (SQLException e) {
             e.printStackTrace();
         }
         return con;
